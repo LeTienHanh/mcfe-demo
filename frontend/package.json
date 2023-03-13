@@ -6,7 +6,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "watch:mcfeshared": "npx lerna watch --scope=mcfeshared -- lerna run build --scope=mcfeshared",
+    "watch:mcfeshared": "npx lerna watch --scope=mcfeshared -- lerna run build --scope=mcfeshared --ignore lib",
     "dev": "npx lerna run dev"
   },
   "devDependencies": {

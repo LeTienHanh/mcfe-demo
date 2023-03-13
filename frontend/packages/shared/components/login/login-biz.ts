@@ -5,7 +5,7 @@ import { useLocalStorage } from "@mantine/hooks";
 
 export default function useLoginBiz() {
   const [loginWaiting, setLoginWaiting] = useState(false);
-  const [userInfo, setUserInfo] = useLocalStorage({
+  const [, setUserInfo] = useLocalStorage({
     key: "user-info",
     defaultValue: {},
   });
