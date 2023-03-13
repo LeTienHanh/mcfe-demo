@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "@mantine/form";
 import { TextInput, Button, Group, Box } from "@mantine/core";
+import useLoginBiz from "./login-biz";
 
 export interface LoginFormProps {
   style: React.CSSProperties;
@@ -15,13 +16,15 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       password: "",
     },
   });
+  const loginBiz = useLoginBiz();
+  const { loginWaiting } = loginBiz;
 
   return (
     <Box w={400} style={style}>
       <TextInput
         label="Email"
         placeholder="Email"
-        {...form.getInputProps("name")}
+        {...form.getInputProps("email")}
       />
       <TextInput
         type="password"
@@ -32,7 +35,15 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       />
 
       <Group position="center" mt="xl">
-        <Button variant="outline">Login</Button>
+        <Button
+          variant="outline"
+          loading={loginWaiting}
+          onClick={() => {
+            loginBiz.login(form.values);
+          }}
+        >
+          Login
+        </Button>
       </Group>
     </Box>
   );

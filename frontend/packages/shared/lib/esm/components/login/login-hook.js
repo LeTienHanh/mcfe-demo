@@ -1,2 +1,2 @@
-export default function useLogin() { }
+export default function useLoginBiz() { }
 //# sourceMappingURL=login-hook.js.map
