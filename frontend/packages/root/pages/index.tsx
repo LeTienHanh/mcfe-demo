@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import UserCardRoot from "@/components/user-info";
 
+// @ts-ignore
 const UserCardApp1 = dynamic(() => import("app1/user-info"), {
   loading: () => <p>Loading app1 user information</p>,
   ssr: false,
