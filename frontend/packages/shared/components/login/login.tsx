@@ -5,10 +5,12 @@ import useLoginBiz from "./login-biz";
 
 export interface LoginFormProps {
   style: React.CSSProperties;
+  onSuccess: Function;
 }
 
 export const LoginForm: React.FC<LoginFormProps> = ({
   style,
+  onSuccess,
 }: LoginFormProps) => {
   const form = useForm({
     initialValues: {
@@ -19,11 +21,21 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   const loginBiz = useLoginBiz();
   const { loginWaiting } = loginBiz;
 
+  // const [user] = useLocalStorage<UserInfoType>({
+  //   key: "user-info",
+  // });
+
+  // useEffect(() => {
+  //   if (user && user.email) {
+  //     onSuccess();
+  //   }
+  // }, [user]);
+
   return (
     <Box w={400} style={style}>
       <TextInput
-        label="Email"
-        placeholder="Email"
+        label="User"
+        placeholder="User"
         {...form.getInputProps("email")}
       />
       <TextInput
@@ -38,8 +50,9 @@ export const LoginForm: React.FC<LoginFormProps> = ({
         <Button
           variant="outline"
           loading={loginWaiting}
-          onClick={() => {
-            loginBiz.login(form.values);
+          onClick={async () => {
+            await loginBiz.login(form.values);
+            onSuccess();
           }}
         >
           Login
