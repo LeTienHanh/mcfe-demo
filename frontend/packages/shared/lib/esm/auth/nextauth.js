@@ -1,15 +1,8 @@
 import { __awaiter } from "tslib";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-export const McfeAuth = NextAuth({
-    callbacks: {
-        redirect({ url, baseUrl }) {
-            console.log("redirect");
-            console.log(baseUrl);
-            console.log(url);
-            return baseUrl;
-        },
-    },
+export const McfeAuth = ({ callbacks = {} } = {}) => NextAuth({
+    callbacks: Object.assign({}, callbacks),
     providers: [
         CredentialsProvider({
             name: "credentials",
@@ -20,11 +13,11 @@ export const McfeAuth = NextAuth({
             authorize(credentials) {
                 return __awaiter(this, void 0, void 0, function* () {
                     /*  const res = await fetch("/your/endpoint", {
-                        method: "POST",
-                        body: JSON.stringify(credentials),
-                        headers: { "Content-Type": "application/json" },
-                      });
-                      const user = await res.json(); */
+                      method: "POST",
+                      body: JSON.stringify(credentials),
+                      headers: { "Content-Type": "application/json" },
+                    });
+                    const user = await res.json(); */
                     console.log("authorize");
                     console.log(credentials);
                     if (!credentials) {

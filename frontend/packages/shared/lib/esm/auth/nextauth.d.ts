@@ -1,2 +1,4 @@
-export declare const McfeAuth: any;
+export declare const McfeAuth: ({ callbacks }?: {
+    callbacks?: {} | undefined;
+}) => any;
 //# sourceMappingURL=nextauth.d.ts.map

@@ -4,15 +4,8 @@ exports.McfeAuth = void 0;
 const tslib_1 = require("tslib");
 const next_auth_1 = tslib_1.__importDefault(require("next-auth"));
 const credentials_1 = tslib_1.__importDefault(require("next-auth/providers/credentials"));
-exports.McfeAuth = (0, next_auth_1.default)({
-    callbacks: {
-        redirect({ url, baseUrl }) {
-            console.log("redirect");
-            console.log(baseUrl);
-            console.log(url);
-            return baseUrl;
-        },
-    },
+const McfeAuth = ({ callbacks = {} } = {}) => (0, next_auth_1.default)({
+    callbacks: Object.assign({}, callbacks),
     providers: [
         (0, credentials_1.default)({
             name: "credentials",
@@ -23,11 +16,11 @@ exports.McfeAuth = (0, next_auth_1.default)({
             authorize(credentials) {
                 return tslib_1.__awaiter(this, void 0, void 0, function* () {
                     /*  const res = await fetch("/your/endpoint", {
-                        method: "POST",
-                        body: JSON.stringify(credentials),
-                        headers: { "Content-Type": "application/json" },
-                      });
-                      const user = await res.json(); */
+                      method: "POST",
+                      body: JSON.stringify(credentials),
+                      headers: { "Content-Type": "application/json" },
+                    });
+                    const user = await res.json(); */
                     console.log("authorize");
                     console.log(credentials);
                     if (!credentials) {
@@ -42,4 +35,5 @@ exports.McfeAuth = (0, next_auth_1.default)({
         }),
     ],
 });
+exports.McfeAuth = McfeAuth;
 //# sourceMappingURL=nextauth.js.map

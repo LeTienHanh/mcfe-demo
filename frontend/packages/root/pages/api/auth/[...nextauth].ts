@@ -1,3 +1,3 @@
 import { McfeAuth } from "mcfeshared/auth";
 
-export default McfeAuth;
+export default McfeAuth();
