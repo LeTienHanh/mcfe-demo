@@ -1,3 +1,3 @@
 export interface UserInfoType {
-  email: string;
+  name: string;
 }

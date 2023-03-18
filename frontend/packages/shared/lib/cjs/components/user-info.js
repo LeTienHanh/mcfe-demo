@@ -7,7 +7,7 @@ const react_1 = tslib_1.__importDefault(require("react"));
 const UserInfo = ({ user }) => {
     return react_1.default.createElement(core_1.Text, null,
         "User: ",
-        user.email,
+        user.name,
         " ");
 };
 exports.UserInfo = UserInfo;

@@ -20,6 +20,11 @@ const nextConfig = {
           app2: `app2@${APP2_URL}/app2/_next/static/chunks/remoteEntry.js`,
         },
         exposes: {},
+        shared: {
+          "next-auth": {
+            singleton: true,
+          },
+        },
       })
     );
 

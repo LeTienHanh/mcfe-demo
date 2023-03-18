@@ -3,7 +3,7 @@ import React from "react";
 export const UserInfo = ({ user }) => {
     return React.createElement(Text, null,
         "User: ",
-        user.email,
+        user.name,
         " ");
 };
 //# sourceMappingURL=user-info.js.map

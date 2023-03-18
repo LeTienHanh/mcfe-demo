@@ -1,6 +1,6 @@
 export default function useLoginBiz(): {
     login: (values: {
-        email: string;
+        username: string;
         password: string;
     }) => Promise<void>;
     loginWaiting: boolean;

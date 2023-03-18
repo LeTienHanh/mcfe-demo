@@ -14,7 +14,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
 }: LoginFormProps) => {
   const form = useForm({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
     },
   });
@@ -36,7 +36,7 @@ export const LoginForm: React.FC<LoginFormProps> = ({
       <TextInput
         label="User"
         placeholder="User"
-        {...form.getInputProps("email")}
+        {...form.getInputProps("username")}
       />
       <TextInput
         type="password"

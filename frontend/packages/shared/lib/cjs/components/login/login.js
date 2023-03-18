@@ -9,7 +9,7 @@ const login_biz_1 = tslib_1.__importDefault(require("./login-biz"));
 const LoginForm = ({ style, onSuccess, }) => {
     const form = (0, form_1.useForm)({
         initialValues: {
-            email: "",
+            username: "",
             password: "",
         },
     });
@@ -24,7 +24,7 @@ const LoginForm = ({ style, onSuccess, }) => {
     //   }
     // }, [user]);
     return (react_1.default.createElement(core_1.Box, { w: 400, style: style },
-        react_1.default.createElement(core_1.TextInput, Object.assign({ label: "User", placeholder: "User" }, form.getInputProps("email"))),
+        react_1.default.createElement(core_1.TextInput, Object.assign({ label: "User", placeholder: "User" }, form.getInputProps("username"))),
         react_1.default.createElement(core_1.TextInput, Object.assign({ type: "password", mt: "md", label: "Password", placeholder: "Password" }, form.getInputProps("password"))),
         react_1.default.createElement(core_1.Group, { position: "center", mt: "xl" },
             react_1.default.createElement(core_1.Button, { variant: "outline", loading: loginWaiting, onClick: () => tslib_1.__awaiter(void 0, void 0, void 0, function* () {

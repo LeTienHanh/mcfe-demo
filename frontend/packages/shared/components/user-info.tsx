@@ -7,5 +7,5 @@ export interface UserInfoProps {
 }
 
 export const UserInfo: React.FC<UserInfoProps> = ({ user }) => {
-  return <Text>User: {user.email} </Text>;
+  return <Text>User: {user.name} </Text>;
 };

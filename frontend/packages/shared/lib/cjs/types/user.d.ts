@@ -1,4 +1,4 @@
 export interface UserInfoType {
-    email: string;
+    name: string;
 }
 //# sourceMappingURL=user.d.ts.map

@@ -1,7 +1,10 @@
-import { __awaiter } from "tslib";
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-export const McfeAuth = NextAuth({
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.McfeAuth = void 0;
+const tslib_1 = require("tslib");
+const next_auth_1 = tslib_1.__importDefault(require("next-auth"));
+const credentials_1 = tslib_1.__importDefault(require("next-auth/providers/credentials"));
+exports.McfeAuth = (0, next_auth_1.default)({
     callbacks: {
         redirect({ url, baseUrl }) {
             console.log("redirect");
@@ -11,14 +14,14 @@ export const McfeAuth = NextAuth({
         },
     },
     providers: [
-        CredentialsProvider({
+        (0, credentials_1.default)({
             name: "credentials",
             credentials: {
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
             authorize(credentials) {
-                return __awaiter(this, void 0, void 0, function* () {
+                return tslib_1.__awaiter(this, void 0, void 0, function* () {
                     /*  const res = await fetch("/your/endpoint", {
                         method: "POST",
                         body: JSON.stringify(credentials),
