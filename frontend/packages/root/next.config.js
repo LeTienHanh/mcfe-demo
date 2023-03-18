@@ -1,5 +1,6 @@
 /** @type {import('next').NextConfig} */
 const NextFederationPlugin = require("@module-federation/nextjs-mf");
+const { APP1_URL, APP2_URL } = process.env;
 
 const nextConfig = {
   reactStrictMode: true,
@@ -15,14 +16,38 @@ const nextConfig = {
         name: "root",
         filename: "static/chunks/remoteEntry.js",
         remotes: {
-          app1: "app1@http://localhost:3001/_next/static/chunks/remoteEntry.js",
-          app2: "app2@http://localhost:3002/_next/static/chunks/remoteEntry.js",
+          app1: `app1@${APP1_URL}/app1/_next/static/chunks/remoteEntry.js`,
+          app2: `app2@${APP2_URL}/app2/_next/static/chunks/remoteEntry.js`,
         },
         exposes: {},
       })
     );
 
     return config;
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/:path*",
+        destination: `/:path*`,
+      },
+      {
+        source: "/app1",
+        destination: `${APP1_URL}/app1`,
+      },
+      {
+        source: "/app1/:path*",
+        destination: `${APP1_URL}/app1/:path*`,
+      },
+      {
+        source: "/app2",
+        destination: `${APP2_URL}/app2`,
+      },
+      {
+        source: "/app2/:path*",
+        destination: `${APP2_URL}/app2/:path*`,
+      },
+    ];
   },
 };
 
