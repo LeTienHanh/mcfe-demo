@@ -1,12 +1,10 @@
 "use client";
 
-import { UserInfoType } from "mcfeshared";
-import { MantineProvider, Button, Grid } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
-import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
 import UserCardRoot from "@/components/user-info";
+import { Button, Grid, MantineProvider } from "@mantine/core";
 import { useSession } from "next-auth/react";
+import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
 // @ts-ignore
 const UserCardApp1 = dynamic(() => import("app1/user-info"), {
