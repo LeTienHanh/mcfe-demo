@@ -1,7 +1,3 @@
 import React from "react";
-import { UserInfoType } from "../types";
-export interface UserInfoProps {
-    user: UserInfoType;
-}
-export declare const UserInfo: React.FC<UserInfoProps>;
+export declare const UserInfo: React.FC<any>;
 //# sourceMappingURL=user-info.d.ts.map

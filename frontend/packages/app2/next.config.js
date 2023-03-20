@@ -23,6 +23,12 @@ const nextConfig = {
         shared: {
           "next-auth": {
             singleton: true,
+            requiredVersion: false,
+          },
+          "next-auth/react": {
+            singleton: true,
+            requiredVersion: false,
+            eager: true,
           },
         },
       })

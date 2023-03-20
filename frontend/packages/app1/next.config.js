@@ -20,6 +20,17 @@ const nextConfig = {
         exposes: {
           "./user-info": "./components/user-info",
         },
+        shared: {
+          "next-auth": {
+            singleton: true,
+            requiredVersion: false,
+          },
+          "next-auth/react": {
+            singleton: true,
+            requiredVersion: false,
+            eager: true,
+          },
+        },
       })
     );
 

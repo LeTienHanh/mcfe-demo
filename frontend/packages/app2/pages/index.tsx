@@ -1,16 +1,13 @@
 "use client";
 
-import { UserInfoType } from "mcfeshared";
 import { UserCardApp2 } from "@/components/user-info";
-import { MantineProvider, Button, Flex } from "@mantine/core";
-import { useLocalStorage } from "@mantine/hooks";
+import { Button, Flex, MantineProvider } from "@mantine/core";
+import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 
 export default function RootPage() {
   const router = useRouter();
-  const [user] = useLocalStorage<UserInfoType>({
-    key: "user-info",
-  });
+  const { status } = useSession();
 
   return (
     <MantineProvider
@@ -20,7 +17,7 @@ export default function RootPage() {
         colorScheme: "light",
       }}
     >
-      {!user ? (
+      {status !== "authenticated" ? (
         <Button
           onClick={() => {
             router.push("/login");

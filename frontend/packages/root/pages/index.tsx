@@ -6,6 +6,7 @@ import { useLocalStorage } from "@mantine/hooks";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import UserCardRoot from "@/components/user-info";
+import { useSession } from "next-auth/react";
 
 // @ts-ignore
 const UserCardApp1 = dynamic(() => import("app1/user-info"), {
@@ -20,9 +21,7 @@ const UserCardApp2 = dynamic(() => import("app2/components/user-info"), {
 
 export default function RootPage() {
   const router = useRouter();
-  const [user] = useLocalStorage<UserInfoType>({
-    key: "user-info",
-  });
+  const { status } = useSession();
 
   return (
     <MantineProvider
@@ -32,7 +31,7 @@ export default function RootPage() {
         colorScheme: "light",
       }}
     >
-      {!user ? (
+      {status !== "authenticated" ? (
         <Button
           onClick={() => {
             router.push("/login");

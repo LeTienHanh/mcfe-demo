@@ -5,7 +5,18 @@ const tslib_1 = require("tslib");
 const next_auth_1 = tslib_1.__importDefault(require("next-auth"));
 const credentials_1 = tslib_1.__importDefault(require("next-auth/providers/credentials"));
 const McfeAuth = ({ callbacks = {} } = {}) => (0, next_auth_1.default)({
-    callbacks: Object.assign({}, callbacks),
+    callbacks: Object.assign({ redirect({ baseUrl }) {
+            return tslib_1.__awaiter(this, void 0, void 0, function* () {
+                console.log("base url: " + baseUrl);
+                return baseUrl;
+            });
+        },
+        jwt({ token }) {
+            return tslib_1.__awaiter(this, void 0, void 0, function* () {
+                console.log(token);
+                return token;
+            });
+        } }, callbacks),
     providers: [
         (0, credentials_1.default)({
             name: "credentials",
@@ -28,6 +39,7 @@ const McfeAuth = ({ callbacks = {} } = {}) => (0, next_auth_1.default)({
                     }
                     return {
                         id: credentials === null || credentials === void 0 ? void 0 : credentials.username,
+                        name: credentials === null || credentials === void 0 ? void 0 : credentials.username,
                         password: credentials === null || credentials === void 0 ? void 0 : credentials.password,
                     };
                 });

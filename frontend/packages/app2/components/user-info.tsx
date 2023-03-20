@@ -1,24 +1,22 @@
-import React from "react";
 import { Card, Text } from "@mantine/core";
-import { UserInfo, UserInfoType } from "mcfeshared";
-import { useLocalStorage } from "@mantine/hooks";
+import { UserInfo } from "mcfeshared";
+import { useSession } from "next-auth/react";
+import React from "react";
 
 export const UserCardApp2: React.FC = () => {
-  const [user] = useLocalStorage<UserInfoType>({
-    key: "user-info",
-  });
+  const { data: session, status } = useSession();
 
-  if (!user) {
+  if (status !== "authenticated") {
     return null;
   }
 
   return (
     <Card withBorder shadow="sm" radius="md">
       <Card.Section withBorder inheritPadding>
-        <Text>App2 User Information </Text>
+        <Text>App1 User Information </Text>
       </Card.Section>
 
-      <UserInfo user={user} />
+      <UserInfo user={session.user} />
     </Card>
   );
 };

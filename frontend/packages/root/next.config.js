@@ -24,6 +24,11 @@ const nextConfig = {
           "next-auth": {
             singleton: true,
           },
+          "next-auth/react": {
+            singleton: true,
+            requiredVersion: false,
+            eager: true,
+          },
         },
       })
     );

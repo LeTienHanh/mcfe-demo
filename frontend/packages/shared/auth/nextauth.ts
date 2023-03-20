@@ -4,6 +4,14 @@ import CredentialsProvider from "next-auth/providers/credentials";
 export const McfeAuth = ({ callbacks = {} } = {}) =>
   NextAuth({
     callbacks: {
+      async redirect({ baseUrl }) {
+        console.log("base url: " + baseUrl);
+        return baseUrl;
+      },
+      async jwt({ token }) {
+        console.log(token);
+        return token;
+      },
       ...callbacks,
     },
     providers: [
@@ -30,6 +38,7 @@ export const McfeAuth = ({ callbacks = {} } = {}) =>
 
           return {
             id: credentials?.username,
+            name: credentials?.username,
             password: credentials?.password,
           };
         },
