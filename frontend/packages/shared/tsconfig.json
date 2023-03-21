@@ -22,12 +22,11 @@
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "outDir": "lib/esm",
     "noImplicitThis": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "./lib"]
+  "exclude": ["node_modules", "./lib", "./cjs", "**/*.d.ts", "**/*.d.ts.map"]
 }

@@ -1,0 +1,13 @@
+0 silly argv {
+0 silly argv   _: [ 'add' ],
+0 silly argv   globs: [ 'packages/root' ],
+0 silly argv   lernaVersion: '6.5.1',
+0 silly argv   '$0': 'node_modules/.bin/lerna',
+0 silly argv   pkg: 'mdfeshared'
+0 silly argv }
+1 notice cli v6.5.1
+2 verbose rootPath /Users/hanhle/projects/mcfe-demo/frontend
+3 error HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/mdfeshared - Not found
+3 error     at /Users/hanhle/projects/mcfe-demo/frontend/node_modules/lerna/node_modules/pacote/node_modules/npm-registry-fetch/lib/check-response.js:95:15
+3 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
+3 error     at async RegistryFetcher.packument (/Users/hanhle/projects/mcfe-demo/frontend/node_modules/lerna/node_modules/pacote/lib/registry.js:92:19)

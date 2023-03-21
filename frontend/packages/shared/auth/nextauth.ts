@@ -1,16 +1,47 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+const getDomainWithoutSubdomain = (url: string) => {
+  const urlObj = new URL(url);
+  const urlParts = urlObj.hostname.split(".");
+
+  let domain = urlParts
+    .slice(0)
+    .slice(-(urlParts.length === 4 ? 3 : 2))
+    .join(".");
+
+  if (domain === "localhost") {
+    return domain;
+  }
+
+  return "." + domain;
+};
+
+let useSecureCookies = process.env.NEXTAUTH_URL!.startsWith("https://");
+const cookiePrefix = useSecureCookies ? "__Secure-" : "";
+const domain = getDomainWithoutSubdomain(process.env.NEXTAUTH_URL!);
+
+const cookies = {
+  sessionToken: {
+    name: `${cookiePrefix}next-auth.session-token`,
+    options: {
+      httpOnly: true,
+      sameSite: "lax",
+      path: "/",
+      secure: useSecureCookies,
+      domain,
+    },
+  },
+};
+
 export const McfeAuth = ({ callbacks = {} } = {}) =>
   NextAuth({
+    useSecureCookies,
+    cookies,
+    secret: "samesecretjwtkey",
     callbacks: {
       async redirect({ baseUrl }) {
-        console.log("base url: " + baseUrl);
         return baseUrl;
-      },
-      async jwt({ token }) {
-        console.log(token);
-        return token;
       },
       ...callbacks,
     },
@@ -28,9 +59,6 @@ export const McfeAuth = ({ callbacks = {} } = {}) =>
             headers: { "Content-Type": "application/json" },
           });
           const user = await res.json(); */
-
-          console.log("authorize");
-          console.log(credentials);
 
           if (!credentials) {
             return null;

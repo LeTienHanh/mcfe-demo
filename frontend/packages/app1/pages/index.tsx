@@ -1,9 +1,10 @@
 "use client";
 
 import { UserCardApp1 } from "@/components/user-info";
-import { Button, Flex, MantineProvider } from "@mantine/core";
+import { Button, Flex, MantineProvider, Center } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { LogoutButton } from "mcfeshared/components";
 
 export default function RootPage() {
   const router = useRouter();
@@ -31,7 +32,11 @@ export default function RootPage() {
           <div style={{ flex: 1 }}>
             <UserCardApp1 />
           </div>
-          <div style={{ flex: 1 }}></div>
+          <div style={{ flex: 1 }}>
+            <Center>
+              <LogoutButton />
+            </Center>
+          </div>
           <div style={{ flex: 1 }}></div>
         </Flex>
       )}
