@@ -1,7 +1,7 @@
 "use client";
 
 import UserCardRoot from "@/components/user-info";
-import { Button, Grid, MantineProvider, Center } from "@mantine/core";
+import { Button, Grid, MantineProvider, Center, Text } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
@@ -21,6 +21,14 @@ const UserCardApp2 = dynamic(() => import("app2/components/user-info"), {
 export default function RootPage() {
   const router = useRouter();
   const { status } = useSession();
+
+  if (status === "loading") {
+    return (
+      <Center>
+        <Text>Loading...</Text>
+      </Center>
+    );
+  }
 
   return (
     <MantineProvider
