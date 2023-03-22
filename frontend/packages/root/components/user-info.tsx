@@ -13,7 +13,7 @@ export const UserCardRoot: React.FC = () => {
   return (
     <Card withBorder shadow="sm" radius="md">
       <Card.Section withBorder inheritPadding>
-        <Text>Root User Information </Text>
+        <Text>This is Root App Component: 3000 Port</Text>
       </Card.Section>
 
       <UserInfo user={session.user} />
