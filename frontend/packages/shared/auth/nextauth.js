@@ -44,37 +44,25 @@ export const McfeAuth = ({ callbacks = {} } = {}) => NextAuth({
                 username: { label: "Username", type: "text" },
                 password: { label: "Password", type: "password" },
             },
-            async authorize(credentials) {
-                const res = await fetch("http://localhost:5000/auth/login", {
-                    method: "POST",
-                    body: JSON.stringify(credentials),
-                    headers: { "Content-Type": "application/json" },
+            authorize(credentials) {
+                return __awaiter(this, void 0, void 0, function* () {
+                    //  const res = await fetch("http://localhost:5000/auth/login", {
+                    //    method: "POST",
+                    //    body: JSON.stringify(credentials),
+                    //    headers: { "Content-Type": "application/json" },
+                    //  });
+                    //  const user = await res.json();
+                    //  if (!user) return null;
+                    //  return user;
+                    if (!credentials) {
+                        return null;
+                    }
+                    return {
+                        id: credentials === null || credentials === void 0 ? void 0 : credentials.username,
+                        name: credentials === null || credentials === void 0 ? void 0 : credentials.username,
+                        password: credentials === null || credentials === void 0 ? void 0 : credentials.password,
+                    };
                 });
-                const user = await res.json();
-                if(!user)
-                    return null
-
-                return user
-                // return __awaiter(this, void 0, void 0, function* () {
-                //     const res = await fetch("http://localhost:5000/auth/login", {
-                //       method: "POST",
-                //       body: JSON.stringify(credentials),
-                //       headers: { "Content-Type": "application/json" },
-                //     });
-                //     const user = await res.json();
-                //     if(!user)
-                //         return null
-
-                //     return user
-                //     if (!credentials) {
-                //         return null;
-                //     }
-                //     return {
-                //         id: credentials === null || credentials === void 0 ? void 0 : credentials.username,
-                //         name: credentials === null || credentials === void 0 ? void 0 : credentials.username,
-                //         password: credentials === null || credentials === void 0 ? void 0 : credentials.password,
-                //     };
-                // });
             },
         }),
     ],

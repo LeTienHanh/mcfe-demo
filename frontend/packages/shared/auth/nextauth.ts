@@ -53,12 +53,15 @@ export const McfeAuth = ({ callbacks = {} } = {}) =>
           password: { label: "Password", type: "password" },
         },
         async authorize(credentials) {
-          /*  const res = await fetch("/your/endpoint", {
-            method: "POST",
-            body: JSON.stringify(credentials),
-            headers: { "Content-Type": "application/json" },
-          });
-          const user = await res.json(); */
+          //  const res = await fetch("http://localhost:5000/auth/login", {
+          //    method: "POST",
+          //    body: JSON.stringify(credentials),
+          //    headers: { "Content-Type": "application/json" },
+          //  });
+          //  const user = await res.json();
+          //  if (!user) return null;
+
+          //  return user;
 
           if (!credentials) {
             return null;
