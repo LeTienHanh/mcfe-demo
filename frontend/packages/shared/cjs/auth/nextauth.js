@@ -31,44 +31,52 @@ const cookies = {
         },
     },
 };
-const McfeAuth = ({ callbacks = {} } = {}) => (0, next_auth_1.default)({
-    useSecureCookies,
-    cookies,
-    secret: "samesecretjwtkey",
-    callbacks: Object.assign({ redirect({ baseUrl }) {
-            return tslib_1.__awaiter(this, void 0, void 0, function* () {
-                return baseUrl;
+const McfeAuth = ({ callbacks = {} } = {}) => {
+    return function auth(req, res) {
+        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+            res.setHeader("Cache-Control", "no-store, max-age=0");
+            return yield (0, next_auth_1.default)(req, res, {
+                debug: true,
+                useSecureCookies,
+                cookies,
+                secret: "samesecretjwtkey",
+                callbacks: Object.assign({ redirect({ baseUrl }) {
+                        return tslib_1.__awaiter(this, void 0, void 0, function* () {
+                            return baseUrl;
+                        });
+                    } }, callbacks),
+                providers: [
+                    (0, credentials_1.default)({
+                        name: "credentials",
+                        credentials: {
+                            username: { label: "Username", type: "text" },
+                            password: { label: "Password", type: "password" },
+                        },
+                        authorize(credentials) {
+                            return tslib_1.__awaiter(this, void 0, void 0, function* () {
+                                //  const res = await fetch("http://localhost:5000/auth/login", {
+                                //    method: "POST",
+                                //    body: JSON.stringify(credentials),
+                                //    headers: { "Content-Type": "application/json" },
+                                //  });
+                                //  const user = await res.json();
+                                //  if (!user) return null;
+                                //  return user;
+                                if (!credentials) {
+                                    return null;
+                                }
+                                return {
+                                    id: credentials === null || credentials === void 0 ? void 0 : credentials.username,
+                                    name: credentials === null || credentials === void 0 ? void 0 : credentials.username,
+                                    password: credentials === null || credentials === void 0 ? void 0 : credentials.password,
+                                };
+                            });
+                        },
+                    }),
+                ],
             });
-        } }, callbacks),
-    providers: [
-        (0, credentials_1.default)({
-            name: "credentials",
-            credentials: {
-                username: { label: "Username", type: "text" },
-                password: { label: "Password", type: "password" },
-            },
-            authorize(credentials) {
-                return tslib_1.__awaiter(this, void 0, void 0, function* () {
-                    //  const res = await fetch("http://localhost:5000/auth/login", {
-                    //    method: "POST",
-                    //    body: JSON.stringify(credentials),
-                    //    headers: { "Content-Type": "application/json" },
-                    //  });
-                    //  const user = await res.json();
-                    //  if (!user) return null;
-                    //  return user;
-                    if (!credentials) {
-                        return null;
-                    }
-                    return {
-                        id: credentials === null || credentials === void 0 ? void 0 : credentials.username,
-                        name: credentials === null || credentials === void 0 ? void 0 : credentials.username,
-                        password: credentials === null || credentials === void 0 ? void 0 : credentials.password,
-                    };
-                });
-            },
-        }),
-    ],
-});
+        });
+    };
+};
 exports.McfeAuth = McfeAuth;
 //# sourceMappingURL=nextauth.js.map

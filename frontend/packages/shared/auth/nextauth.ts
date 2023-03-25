@@ -1,3 +1,4 @@
+import { NextApiRequest, NextApiResponse } from "next";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
@@ -34,46 +35,51 @@ const cookies = {
   },
 };
 
-export const McfeAuth = ({ callbacks = {} } = {}) =>
-  NextAuth({
-    debug: true,
-    useSecureCookies,
-    cookies,
-    secret: "samesecretjwtkey",
-    callbacks: {
-      async redirect({ baseUrl }) {
-        return baseUrl;
+export const McfeAuth = ({ callbacks = {} } = {}) => {
+  return async function auth(req: NextApiRequest, res: NextApiResponse) {
+    res.setHeader("Cache-Control", "no-store, max-age=0");
+
+    return await NextAuth(req, res, {
+      debug: true,
+      useSecureCookies,
+      cookies,
+      secret: "samesecretjwtkey",
+      callbacks: {
+        async redirect({ baseUrl }) {
+          return baseUrl;
+        },
+        ...callbacks,
       },
-      ...callbacks,
-    },
-    providers: [
-      CredentialsProvider({
-        name: "credentials",
-        credentials: {
-          username: { label: "Username", type: "text" },
-          password: { label: "Password", type: "password" },
-        },
-        async authorize(credentials) {
-          //  const res = await fetch("http://localhost:5000/auth/login", {
-          //    method: "POST",
-          //    body: JSON.stringify(credentials),
-          //    headers: { "Content-Type": "application/json" },
-          //  });
-          //  const user = await res.json();
-          //  if (!user) return null;
+      providers: [
+        CredentialsProvider({
+          name: "credentials",
+          credentials: {
+            username: { label: "Username", type: "text" },
+            password: { label: "Password", type: "password" },
+          },
+          async authorize(credentials) {
+            //  const res = await fetch("http://localhost:5000/auth/login", {
+            //    method: "POST",
+            //    body: JSON.stringify(credentials),
+            //    headers: { "Content-Type": "application/json" },
+            //  });
+            //  const user = await res.json();
+            //  if (!user) return null;
 
-          //  return user;
+            //  return user;
 
-          if (!credentials) {
-            return null;
-          }
+            if (!credentials) {
+              return null;
+            }
 
-          return {
-            id: credentials?.username,
-            name: credentials?.username,
-            password: credentials?.password,
-          };
-        },
-      }),
-    ],
-  });
+            return {
+              id: credentials?.username,
+              name: credentials?.username,
+              password: credentials?.password,
+            };
+          },
+        }),
+      ],
+    });
+  };
+};
