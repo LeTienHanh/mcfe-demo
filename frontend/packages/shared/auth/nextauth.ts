@@ -36,6 +36,7 @@ const cookies = {
 
 export const McfeAuth = ({ callbacks = {} } = {}) =>
   NextAuth({
+    debug: true,
     useSecureCookies,
     cookies,
     secret: "samesecretjwtkey",
