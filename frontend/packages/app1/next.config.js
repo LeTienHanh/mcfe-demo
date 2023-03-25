@@ -36,6 +36,19 @@ const nextConfig = {
 
     return config;
   },
+  async headers() {
+    return [
+      {
+        source: "/app1/api/auth/:slug",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "no-store, max-age=0",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
