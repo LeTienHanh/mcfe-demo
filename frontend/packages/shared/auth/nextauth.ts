@@ -15,7 +15,7 @@ const getDomainWithoutSubdomain = (url: string) => {
     return domain;
   }
 
-  return "." + domain;
+  return domain;
 };
 
 let useSecureCookies = process.env.NEXTAUTH_URL!.startsWith("https://");
