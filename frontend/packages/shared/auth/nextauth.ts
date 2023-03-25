@@ -15,12 +15,13 @@ const getDomainWithoutSubdomain = (url: string) => {
     return domain;
   }
 
-  return domain;
+  return "." + domain;
 };
 
 let useSecureCookies = process.env.NEXTAUTH_URL!.startsWith("https://");
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
 const domain = getDomainWithoutSubdomain(process.env.NEXTAUTH_URL!);
+console.log(domain);
 
 const cookies = {
   sessionToken: {
