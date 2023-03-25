@@ -21,7 +21,6 @@ const getDomainWithoutSubdomain = (url: string) => {
 let useSecureCookies = process.env.NEXTAUTH_URL!.startsWith("https://");
 const cookiePrefix = useSecureCookies ? "__Secure-" : "";
 const domain = getDomainWithoutSubdomain(process.env.NEXTAUTH_URL!);
-console.log(domain);
 
 const cookies = {
   sessionToken: {
@@ -83,6 +82,7 @@ export const McfeAuth = ({ callbacks = {} } = {}) => {
               console.error(err);
             }
 
+            console.log(domain);
             console.log(credentials);
             if (!credentials) {
               return null;
