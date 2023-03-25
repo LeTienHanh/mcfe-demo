@@ -68,6 +68,21 @@ export const McfeAuth = ({ callbacks = {} } = {}) => {
 
             //  return user;
 
+            try {
+              const res = await fetch("http://localhost:5000/auth/login", {
+                method: "POST",
+                body: JSON.stringify(credentials),
+                headers: { "Content-Type": "application/json" },
+              });
+
+              const user = await res.json();
+
+              console.log(user);
+            } catch (err) {
+              console.error(err);
+            }
+
+            console.log(credentials);
             if (!credentials) {
               return null;
             }
