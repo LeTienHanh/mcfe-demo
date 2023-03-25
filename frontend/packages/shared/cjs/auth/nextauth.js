@@ -27,7 +27,7 @@ const cookies = {
             sameSite: "lax",
             path: "/",
             secure: useSecureCookies,
-            domain,
+            domain: ".vercel.app",
         },
     },
 };
