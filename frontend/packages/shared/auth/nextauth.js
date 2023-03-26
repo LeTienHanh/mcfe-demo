@@ -24,7 +24,7 @@ const cookies = {
             sameSite: "lax",
             path: "/",
             secure: useSecureCookies,
-            domain: ".vercel.app",
+            domain,
         },
     },
 };
@@ -36,7 +36,7 @@ export const McfeAuth = ({ callbacks = {} } = {}) => {
                 debug: true,
                 useSecureCookies,
                 cookies,
-                secret: "samesecretjwtkey",
+                secret: "372e4e86a44ecf741373543efdbe574a",
                 callbacks: Object.assign({ redirect({ baseUrl }) {
                         return __awaiter(this, void 0, void 0, function* () {
                             return baseUrl;
