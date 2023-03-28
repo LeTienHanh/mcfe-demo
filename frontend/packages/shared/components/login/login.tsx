@@ -21,16 +21,6 @@ export const LoginForm: React.FC<LoginFormProps> = ({
   const loginBiz = useLoginBiz();
   const { loginWaiting } = loginBiz;
 
-  // const [user] = useLocalStorage<UserInfoType>({
-  //   key: "user-info",
-  // });
-
-  // useEffect(() => {
-  //   if (user && user.email) {
-  //     onSuccess();
-  //   }
-  // }, [user]);
-
   return (
     <Box w={400} style={style}>
       <TextInput

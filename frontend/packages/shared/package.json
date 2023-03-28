@@ -9,7 +9,8 @@
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "npx tsc",
-    "build:cjs": "tsc --module commonjs --outDir cjs"
+    "build:cjs": "tsc --module commonjs --outDir cjs",
+    "clean": "npx tsc --build --clean"
   },
   "dependencies": {
     "@mantine/core": "^6.0.1",
@@ -25,6 +26,7 @@
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "next": "13.2.4",
-    "next-auth": "4.20.1"
+    "next-auth": "4.20.1",
+    "http-proxy-middleware": "2.0.6"
   }
 }

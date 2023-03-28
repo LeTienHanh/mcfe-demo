@@ -1,7 +1,7 @@
 "use client";
 
 import { MantineProvider, Text, Flex, Space } from "@mantine/core";
-import { LoginForm } from "mcfeshared";
+import { LoginForm } from "mcfeshared/esm";
 import { useRouter } from "next/navigation";
 
 export default function Login() {

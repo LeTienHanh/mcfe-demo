@@ -15,14 +15,6 @@ const LoginForm = ({ style, onSuccess, }) => {
     });
     const loginBiz = (0, login_biz_1.default)();
     const { loginWaiting } = loginBiz;
-    // const [user] = useLocalStorage<UserInfoType>({
-    //   key: "user-info",
-    // });
-    // useEffect(() => {
-    //   if (user && user.email) {
-    //     onSuccess();
-    //   }
-    // }, [user]);
     return (react_1.default.createElement(core_1.Box, { w: 400, style: style },
         react_1.default.createElement(core_1.TextInput, Object.assign({ label: "User", placeholder: "User" }, form.getInputProps("username"))),
         react_1.default.createElement(core_1.TextInput, Object.assign({ type: "password", mt: "md", label: "Password", placeholder: "Password" }, form.getInputProps("password"))),

@@ -1,3 +1,4 @@
-import { McfeAuth } from "mcfeshared/auth";
+import { McfeAuth, authOptions } from "mcfeshared/esm/auth";
 
 export default McfeAuth();
+export { authOptions };

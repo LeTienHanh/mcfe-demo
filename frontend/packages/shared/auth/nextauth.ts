@@ -35,67 +35,82 @@ const cookies = {
   },
 };
 
+export const defaultConfig = {
+  debug: true,
+  useSecureCookies,
+  cookies,
+  secret: "372e4e86a44ecf741373543efdbe574a",
+  callbacks: {
+    async redirect({ baseUrl }: { baseUrl: string }) {
+      return baseUrl;
+    },
+    async jwt({ token, user }: { user: Object; token: Object }) {
+      if (user) {
+        //@ts-ignore
+        token.user = user;
+        //@ts-ignore
+        token.access_token = user.access_token;
+      }
+
+      return token;
+    },
+    async session({ session = {}, token = {} }) {
+      //@ts-ignore
+      session.access_token = token.access_token;
+      //@ts-ignore
+      session.user = token.user;
+
+      return session;
+    },
+  },
+  providers: [
+    CredentialsProvider({
+      name: "credentials",
+      credentials: {
+        username: { label: "Username", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
+      async authorize(credentials) {
+        if (!credentials) {
+          return null;
+        }
+
+        try {
+          const res = await fetch(`${process.env.BACKEND_URL}/auth/login`, {
+            method: "POST",
+            body: JSON.stringify(credentials),
+            headers: { "Content-Type": "application/json" },
+          });
+
+          const user = await res.json();
+
+          return user;
+        } catch (err) {
+          console.error(err);
+          return null;
+        }
+      },
+    }),
+  ],
+};
+
+let authOptions = defaultConfig;
+
 export const McfeAuth = ({ callbacks = {} } = {}) => {
   return async function auth(req: NextApiRequest, res: NextApiResponse) {
     res.setHeader("Cache-Control", "no-store, max-age=0");
 
-    return await NextAuth(req, res, {
-      debug: true,
-      useSecureCookies,
-      cookies,
-      secret: "372e4e86a44ecf741373543efdbe574a",
+    authOptions = {
+      ...defaultConfig,
       callbacks: {
-        async redirect({ baseUrl }) {
-          return baseUrl;
-        },
+        ...defaultConfig.callbacks,
         ...callbacks,
       },
-      providers: [
-        CredentialsProvider({
-          name: "credentials",
-          credentials: {
-            username: { label: "Username", type: "text" },
-            password: { label: "Password", type: "password" },
-          },
-          async authorize(credentials) {
-            //  const res = await fetch("http://localhost:5000/auth/login", {
-            //    method: "POST",
-            //    body: JSON.stringify(credentials),
-            //    headers: { "Content-Type": "application/json" },
-            //  });
-            //  const user = await res.json();
-            //  if (!user) return null;
+    };
 
-            //  return user;
-
-            try {
-              const res = await fetch("http://localhost:5000/auth/login", {
-                method: "POST",
-                body: JSON.stringify(credentials),
-                headers: { "Content-Type": "application/json" },
-              });
-
-              const user = await res.json();
-
-              console.log(user);
-            } catch (err) {
-              console.error(err);
-            }
-
-            console.log(domain);
-            console.log(credentials);
-            if (!credentials) {
-              return null;
-            }
-
-            return {
-              id: credentials?.username,
-              name: credentials?.username,
-              password: credentials?.password,
-            };
-          },
-        }),
-      ],
-    });
+    //@ts-ignore
+    return await NextAuth(req, res, authOptions);
   };
 };
+
+export { authOptions };

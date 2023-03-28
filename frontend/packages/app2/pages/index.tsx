@@ -4,7 +4,7 @@ import { UserCardApp2 } from "@/components/user-info";
 import { Button, Flex, MantineProvider, Center } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogoutButton } from "mcfeshared/components";
+import { LogoutButton } from "mcfeshared/esm/components";
 
 export default function RootPage() {
   const router = useRouter();

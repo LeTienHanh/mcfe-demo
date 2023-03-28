@@ -1,14 +1,10 @@
 import { Card, Text } from "@mantine/core";
-import { UserInfo } from "mcfeshared";
+import { UserInfo } from "mcfeshared/esm";
 import { useSession } from "next-auth/react";
 import React from "react";
 
 export const UserCardApp2: React.FC = () => {
-  const { data: session, status } = useSession();
-
-  if (status !== "authenticated") {
-    return null;
-  }
+  const { status } = useSession();
 
   return (
     <Card withBorder shadow="sm" radius="md">
@@ -16,7 +12,11 @@ export const UserCardApp2: React.FC = () => {
         <Text>This is App2 Component: 3002 Port</Text>
       </Card.Section>
 
-      <UserInfo user={session.user} />
+      {status !== "authenticated" ? (
+        <Text> User is not logged</Text>
+      ) : (
+        <UserInfo url="/app2/api/profile" />
+      )}
     </Card>
   );
 };

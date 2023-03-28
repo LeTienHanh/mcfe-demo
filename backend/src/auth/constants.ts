@@ -1,5 +1,3 @@
-
 export const jwtConstants = {
-    secret: 'clv-',
-  };
-  
+  secret: 'clv-',
+};

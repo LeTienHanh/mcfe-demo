@@ -1,4 +1,4 @@
-import { McfeAuth } from "mcfeshared/auth";
+import { McfeAuth, authOptions } from "mcfeshared/esm/auth";
 
 const { BASE_PATH } = process.env;
 
@@ -9,3 +9,5 @@ export default McfeAuth({
     },
   },
 });
+
+export { authOptions };
