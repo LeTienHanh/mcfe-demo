@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="zV0L8rmKRZQnkUwYOOTy" name="Page-1">
-        <mxGraphModel dx="1337" dy="2707" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+        <mxGraphModel dx="2177" dy="1846" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -51,16 +51,16 @@
                 <mxCell id="5" value="Lib&lt;br&gt;Shared&lt;br&gt;&lt;br&gt;Components:&lt;br&gt;- LoginForm&lt;br&gt;- UserInfo" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="275" y="440" width="125" height="100" as="geometry"/>
                 </mxCell>
-                <mxCell id="10" value="NestJS Backend&lt;br&gt;4000&lt;br&gt;&lt;br&gt;APIs:&lt;br&gt;- Login -&amp;gt; JWT&lt;br&gt;- Get user info &amp;amp; Roles" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="-100" y="420" width="130" height="90" as="geometry"/>
+                <mxCell id="10" value="NestJS Backend&lt;br&gt;4000&lt;br&gt;&lt;br&gt;APIs:&lt;br&gt;- Login -&amp;gt; JWT&lt;br&gt;- Get user info =&amp;gt; /profile" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="-100" y="420" width="160" height="120" as="geometry"/>
                 </mxCell>
                 <mxCell id="16" value="Compile" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="335" y="340" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="17" value="1. MCFE Module Federation + Session&lt;br&gt;2. Top-level router + Next Auth + Cookies&lt;br&gt;3. Proxy to BFF" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-                    <mxGeometry x="20" y="690" width="290" height="50" as="geometry"/>
+                <mxCell id="17" value="1. MCFE Module Federation + Shared Session (Done)&lt;br&gt;2. Top-level router + Next Auth(Credentials) + Cookies (Done)&lt;br&gt;3. Proxy to BFF - Login - Get user profile (Done)&lt;br&gt;4. Private Packages to share common components" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="660" width="360" height="80" as="geometry"/>
                 </mxCell>
-                <mxCell id="20" value="Browser&lt;br&gt;LocalStorage&lt;br&gt;User Infor" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
+                <mxCell id="20" value="Browser&lt;br&gt;Cookies" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;backgroundOutline=1;size=15;" parent="1" vertex="1">
                     <mxGeometry x="500" y="330" width="90" height="90" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" value="Runtime" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
@@ -69,8 +69,8 @@
                 <mxCell id="29" value="Runtime" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
                     <mxGeometry x="470" y="80" width="60" height="30" as="geometry"/>
                 </mxCell>
-                <mxCell id="32" value="Proxy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
-                    <mxGeometry x="30" y="380" width="60" height="30" as="geometry"/>
+                <mxCell id="32" value="Proxy" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="50" y="380" width="60" height="30" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>
