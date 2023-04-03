@@ -23,10 +23,7 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           scope: "@ocean-network-express"
           cache: "yarn"
-      - name: Run install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
+      - run: npx lerna bootstrap
       - run: npx lerna run build --scope="mcfeshared"
       - run: npx lerna publish --scope="mcfeshared"
         env:
