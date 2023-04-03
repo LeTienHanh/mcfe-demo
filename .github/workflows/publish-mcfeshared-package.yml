@@ -28,6 +28,6 @@ jobs:
       - name: Publish
         uses: borales/actions-yarn@v4
         with:
-          cmd: publish packages/shared/package.json
+          cmd: publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
