@@ -32,18 +32,7 @@ jobs:
       - run: npx lerna run build --scope="@ocean-network-express/mcfeshared"
       - run: git config user.name "${{ github.actor }}"
       - run: git config user.email "${{ github.actor}}@users.noreply.github.com"
-
-      - name: Bump Prod Version Graduate
-        continue-on-error: true
-        id: graduateRelease
-        run: yarn lerna version --conventional-graduate --conventional-commits --yes
-      - name: Bump Prod Version Fallback
-        if: steps.graduateRelease.outcome == 'failure'
-        run: |
-          echo Falling back to non-graduate release due to https://github.com/lerna/lerna/issues/2532
-          git stash
-          yarn lerna version --conventional-commits --yes
-
+      - run: yarn lerna version --conventional-commits --yes
       - run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
