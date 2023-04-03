@@ -26,11 +26,11 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           scope: "@ocean-network-express"
           cache: "yarn"
-      - name: yarn install
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: install
-      - run: npx lerna bootstrap
+      # - name: yarn install
+      #   uses: borales/actions-yarn@v4
+      #   with:
+      #     cmd: install
+      # - run: npx lerna bootstrap
       # - run: npx lerna run build --scope="@ocean-network-express/mcfeshared"
       - run: git config user.name "${{ github.actor }}"
       - run: git config user.email "${{ github.actor}}@users.noreply.github.com"
