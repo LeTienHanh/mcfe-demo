@@ -5,53 +5,62 @@
 0 silly argv }
 1 notice cli v6.5.1
 2 verbose rootPath /Users/hanhle/projects/mcfe-demo/frontend
-3 info current version 0.0.0
+3 info current version 0.0.1
 4 silly isAnythingCommitted
 5 verbose isAnythingCommitted 1
 6 silly getCurrentBranch
 7 verbose currentBranch master
 8 silly remoteBranchExists
 9 silly isBehindUpstream
-10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 7
+10 silly isBehindUpstream master is behind origin/master by 0 commit(s) and ahead by 1
 11 silly hasTags
 12 verbose hasTags true
-13 silly git-describe.sync "f50b01b" => {"refCount":"39","sha":"f50b01b","isDirty":false}
+13 silly git-describe.sync "dafa0d1" => {"refCount":"41","sha":"dafa0d1","isDirty":false}
 14 info Assuming all packages changed
 15 verbose updated app1
 16 verbose updated app2
 17 verbose updated root
 18 verbose updated mcfeshared
-19 verbose git-describe undefined => "f50b01b"
-20 silly git-describe parsed => {"refCount":"39","sha":"f50b01b","isDirty":false}
+19 verbose git-describe undefined => "dafa0d1"
+20 silly git-describe parsed => {"refCount":"41","sha":"dafa0d1","isDirty":false}
 21 info execute Skipping releases
 22 silly lifecycle No script for "preversion" in "mcfe-demo", continuing
 23 silly lifecycle No script for "preversion" in "app2", continuing
 24 silly lifecycle No script for "preversion" in "mcfeshared", continuing
-25 verbose version mcfeshared has no lockfile. Skipping lockfile update.
-26 verbose version app2 has no lockfile. Skipping lockfile update.
+25 verbose version app2 has no lockfile. Skipping lockfile update.
+26 verbose version mcfeshared has no lockfile. Skipping lockfile update.
 27 silly lifecycle No script for "version" in "mcfeshared", continuing
 28 silly lifecycle No script for "preversion" in "app1", continuing
 29 silly lifecycle No script for "preversion" in "root", continuing
 30 silly lifecycle No script for "version" in "app2", continuing
-31 verbose version root has no lockfile. Skipping lockfile update.
-32 verbose version app1 has no lockfile. Skipping lockfile update.
-33 silly lifecycle No script for "version" in "root", continuing
-34 silly lifecycle No script for "version" in "app1", continuing
+31 verbose version app1 has no lockfile. Skipping lockfile update.
+32 verbose version root has no lockfile. Skipping lockfile update.
+33 silly lifecycle No script for "version" in "app1", continuing
+34 silly lifecycle No script for "version" in "root", continuing
 35 silly lifecycle No script for "version" in "mcfe-demo", continuing
 36 silly gitAdd [
 36 silly gitAdd   'packages/shared/package.json',
 36 silly gitAdd   'packages/app2/package.json',
-36 silly gitAdd   'packages/root/package.json',
 36 silly gitAdd   'packages/app1/package.json',
+36 silly gitAdd   'packages/root/package.json',
 36 silly gitAdd   'lerna.json'
 36 silly gitAdd ]
-37 silly gitCommit v0.0.1
-38 verbose git [ 'commit', '-m', 'v0.0.1' ]
-39 silly gitTag v0.0.1 git tag %s -m %s
-40 verbose git [ 'tag', 'v0.0.1', '-m', 'v0.0.1' ]
-41 error Error: Command failed with exit code 128: git tag v0.0.1 -m v0.0.1
-41 error fatal: tag 'v0.0.1' already exists
-41 error     at makeError (/Users/hanhle/projects/mcfe-demo/frontend/node_modules/@lerna/child-process/node_modules/execa/lib/error.js:60:11)
-41 error     at handlePromise (/Users/hanhle/projects/mcfe-demo/frontend/node_modules/@lerna/child-process/node_modules/execa/index.js:118:26)
-41 error     at processTicksAndRejections (internal/process/task_queues.js:95:5)
-41 error     at async Promise.all (index 0)
+37 silly gitCommit v0.0.2
+38 verbose git [ 'commit', '-m', 'v0.0.2' ]
+39 silly gitTag v0.0.2 git tag %s -m %s
+40 verbose git [ 'tag', 'v0.0.2', '-m', 'v0.0.2' ]
+41 silly lifecycle No script for "postversion" in "app1", continuing
+42 silly lifecycle No script for "postversion" in "app2", continuing
+43 silly lifecycle No script for "postversion" in "root", continuing
+44 silly lifecycle No script for "postversion" in "mcfeshared", continuing
+45 silly lifecycle No script for "postversion" in "mcfe-demo", continuing
+46 info git Pushing tags...
+47 silly gitPush origin master
+48 error Error: Command failed with exit code 128: git push --follow-tags --no-verify --atomic origin master
+48 error ERROR: Permission to LeTienHanh/mcfe-demo.git denied to hanh-le-clv.
+48 error fatal: Could not read from remote repository.
+48 error
+48 error Please make sure you have the correct access rights
+48 error and the repository exists.
+48 error     at makeError (/Users/hanhle/projects/mcfe-demo/frontend/node_modules/@lerna/child-process/node_modules/execa/lib/error.js:60:11)
+48 error     at handlePromise (/Users/hanhle/projects/mcfe-demo/frontend/node_modules/@lerna/child-process/node_modules/execa/index.js:118:26)
