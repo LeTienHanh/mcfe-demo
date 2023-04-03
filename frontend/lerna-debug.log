@@ -2,8 +2,6 @@
 0 silly argv   _: [ 'version' ],
 0 silly argv   'conventional-commits': true,
 0 silly argv   conventionalCommits: true,
-0 silly argv   'conventional-graduate': true,
-0 silly argv   conventionalGraduate: true,
 0 silly argv   yes: true,
 0 silly argv   y: true,
 0 silly argv   lernaVersion: '6.5.1',
