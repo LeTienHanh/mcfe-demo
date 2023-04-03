@@ -23,8 +23,10 @@ jobs:
           registry-url: "https://npm.pkg.github.com"
           scope: "@ocean-network-express"
           cache: "yarn"
-          cache-dependency-path: yarn.lock
-      - run: yarn install
+      - name: Run install
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: install
       - run: npx lerna run build --scope="mcfeshared"
       - run: npx lerna publish --scope="mcfeshared"
         env:
