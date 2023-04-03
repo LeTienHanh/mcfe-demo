@@ -1,5 +1,5 @@
 import { __awaiter } from "tslib";
-import { proxy } from "mcfeshared/server";
+import { proxy } from "../server";
 import { getServerSession } from "next-auth/next";
 export default (authOptions = {}) => {
     return (req, res) => __awaiter(void 0, void 0, void 0, function* () {

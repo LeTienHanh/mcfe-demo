@@ -1,4 +1,4 @@
-import { proxy } from "mcfeshared/server";
+import { proxy } from "../server";
 const LOGIN_ENDPOINT_PATH = "/auth/login";
 export default (req, res) => {
     req.url = LOGIN_ENDPOINT_PATH;

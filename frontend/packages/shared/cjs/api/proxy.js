@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.config = void 0;
 const tslib_1 = require("tslib");
-const server_1 = require("mcfeshared/server");
+const server_1 = require("../server");
 const next_1 = require("next-auth/next");
 exports.default = (authOptions = {}) => {
     return (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
