@@ -35,6 +35,8 @@ jobs:
       - run: git config user.name "${{ github.actor }}"
       - run: git config user.email "${{ github.actor}}@users.noreply.github.com"
       - run: npx lerna version --conventional-commits --yes
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
