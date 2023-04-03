@@ -25,9 +25,9 @@ jobs:
           cache: "yarn"
       - run: npx lerna bootstrap
       - run: npx lerna run build --scope="mcfeshared"
-      - name: Publish
-        uses: borales/actions-yarn@v4
-        with:
-          cmd: publish
+      - run: git config user.name "${{ github.actor }}"
+      - run: git config user.email "${{ github.actor}}@users.noreply.github.com"
+      - run: npx lerna version --conventional-commits --conventional-graduate --yes
+      - run: npx lerna publish from-git --yes
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
