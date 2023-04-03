@@ -25,6 +25,6 @@ jobs:
           cache: "yarn"
       - run: npx lerna bootstrap
       - run: npx lerna run build --scope="mcfeshared"
-      - run: npx lerna publish --scope="mcfeshared"
+      - run: npx lerna publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
