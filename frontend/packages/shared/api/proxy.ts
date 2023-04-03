@@ -1,4 +1,4 @@
-import { proxy } from "mcfeshared/server";
+import { proxy } from "../server";
 import { NextApiRequest, NextApiResponse } from "next";
 import { getServerSession } from "next-auth/next";
 

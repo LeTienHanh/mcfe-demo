@@ -1,4 +1,4 @@
-import { proxy } from "mcfeshared/server";
+import { proxy } from "../server";
 import { NextApiRequest, NextApiResponse } from "next";
 
 const LOGIN_ENDPOINT_PATH = "/auth/login";
