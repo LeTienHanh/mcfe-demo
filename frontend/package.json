@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "watch:mcfeshared": "npx lerna watch --scope=mcfeshared  --ignore **/*.d.ts --ignore **/*.d.ts.map --ignore cjs --ignore esm -- lerna run build --scope=mcfeshared",
-    "dev": "npx lerna run dev"
+    "dev": "npx lerna run dev",
+    "version": "npx lerna version --conventional-commits --no-push --no-git-tag-version --yes"
   },
   "devDependencies": {
     "@types/node": "^18.15.0",

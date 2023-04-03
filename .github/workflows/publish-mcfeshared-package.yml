@@ -25,6 +25,9 @@ jobs:
           cache: "yarn"
       - run: npx lerna bootstrap
       - run: npx lerna run build --scope="mcfeshared"
-      - run: npx lerna publish
+      - name: Publish
+        uses: borales/actions-yarn@v4
+        with:
+          cmd: publish packages/shared/package.json
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
