@@ -1,6 +1,6 @@
 {
-  "name": "mcfe-demo",
-  "version": "1.0.0",
+  "name": "mcfe-demo-frontend",
+  "version": "0.0.1",
   "main": "index.js",
   "author": "hanhle-clv",
   "license": "MIT",
