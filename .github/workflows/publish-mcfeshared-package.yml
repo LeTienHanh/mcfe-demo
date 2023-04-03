@@ -1,0 +1,28 @@
+name: Publish mcfeshared package to GitHub Packages
+
+on:
+  release:
+    types: [published]
+
+defaults:
+  run:
+    working-directory: ./frontend
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v3
+      # Setup .npmrc file to publish to GitHub Packages
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+          registry-url: "https://npm.pkg.github.com"
+          scope: "@ocean-network-express"
+      - run: npx lerna run build --scope="mcfeshared"
+      - run: npx lerna publish --scope="mcfeshared"
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
