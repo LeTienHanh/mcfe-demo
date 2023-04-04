@@ -5,7 +5,7 @@ import { Button, Grid, MantineProvider, Center, Text } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import dynamic from "next/dynamic";
 import { useRouter } from "next/navigation";
-import { LogoutButton } from "mcfeshared/esm/components";
+import { LogoutButton } from "@ocean-network-express/mcfe-shared/esm/components";
 
 // @ts-ignore
 const UserCardApp1 = dynamic(() => import("app1/user-info"), {
