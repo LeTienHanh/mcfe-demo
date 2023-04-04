@@ -4,7 +4,7 @@ import { UserCardApp1 } from "@/components/user-info";
 import { Button, Flex, MantineProvider, Center } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogoutButton } from "@ocean-network-express/mcfe-shared/esm/components";
+import { LogoutButton } from "@ocean-network-express/mcfe-shared/components";
 
 export default function RootPage() {
   const router = useRouter();
