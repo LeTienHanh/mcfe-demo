@@ -1,7 +1,7 @@
 "use client";
 
 import { MantineProvider, Text, Flex, Space } from "@mantine/core";
-import { LoginForm } from "mcfeshared/esm";
+import { LoginForm } from "@ocean-network-express/mcfe-shared/esm";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
