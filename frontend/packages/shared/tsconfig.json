@@ -26,8 +26,17 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "./esm"
+    "outDir": "./esm",
+    "declarationDir": "./lib",
+    "rootDir": "./src"
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "./esm", "./cjs", "**/*.d.ts", "**/*.d.ts.map"]
+  "exclude": [
+    "node_modules",
+    "./lib",
+    "./esm",
+    "./cjs",
+    "**/*.d.ts",
+    "**/*.d.ts.map"
+  ]
 }

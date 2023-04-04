@@ -1,7 +1,4 @@
-import {
-  McfeAuth,
-  authOptions,
-} from "@ocean-network-express/mcfe-shared/esm/auth";
+import { McfeAuth, authOptions } from "@ocean-network-express/mcfe-shared/auth";
 
 const { BASE_PATH } = process.env;
 

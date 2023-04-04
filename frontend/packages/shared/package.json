@@ -3,7 +3,7 @@
   "version": "0.0.4",
   "main": "cjs/index.js",
   "module": "esm/index.js",
-  "types": "esm/index.d.ts",
+  "types": "lib/index.d.ts",
   "author": "hanhleclv",
   "license": "MIT",
   "repository": {

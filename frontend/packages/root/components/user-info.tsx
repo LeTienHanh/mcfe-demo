@@ -1,5 +1,5 @@
 import { Card, Text } from "@mantine/core";
-import { UserInfo } from "@ocean-network-express/mcfe-shared/esm";
+import { UserInfo } from "@ocean-network-express/mcfe-shared";
 import { useSession } from "next-auth/react";
 import React from "react";
 
