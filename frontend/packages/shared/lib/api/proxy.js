@@ -1,9 +1,12 @@
-import { __awaiter } from "tslib";
-import { proxy } from "../server";
-import { getServerSession } from "next-auth/next";
-export default (authOptions = {}) => {
-    return (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-        const session = yield getServerSession(req, res, authOptions);
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.config = void 0;
+const tslib_1 = require("tslib");
+const server_1 = require("../server");
+const next_1 = require("next-auth/next");
+exports.default = (authOptions = {}) => {
+    return (req, res) => tslib_1.__awaiter(void 0, void 0, void 0, function* () {
+        const session = yield (0, next_1.getServerSession)(req, res, authOptions);
         if (!session) {
             res.status(401).send({
                 error: "UnauthorizedException",
@@ -15,10 +18,10 @@ export default (authOptions = {}) => {
         req.url = req.url.replace(/^\/api/, "");
         //@ts-ignore
         req.headers.authorization = `Bearer ${session.access_token}`;
-        proxy.web(req, res);
+        server_1.proxy.web(req, res);
     });
 };
-export const config = {
+exports.config = {
     api: {
         bodyParser: false,
         externalResolver: true,
