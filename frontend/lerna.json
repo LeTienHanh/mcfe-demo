@@ -3,18 +3,14 @@
   "useWorkspaces": true,
   "version": "--independent",
   "npmClient": "yarn",
-  "packages": [
-    "packages/shared"
-  ],
+  "packages": ["packages/shared"],
   "command": {
     "publish": {
       "registry": "https://npm.pkg.github.com/"
     },
     "version": {
       "allowBranch": "release",
-      "ignoreChanges": [
-        "**/*.md"
-      ]
+      "ignoreChanges": ["**/*.md"]
     }
   }
 }
