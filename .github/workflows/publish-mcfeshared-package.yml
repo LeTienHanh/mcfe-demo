@@ -3,7 +3,7 @@ name: Publish mcfeshared package to GitHub Packages
 on:
   push:
     branches:
-      - release
+      - master
 
 defaults:
   run:
