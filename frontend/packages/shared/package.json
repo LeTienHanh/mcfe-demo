@@ -1,9 +1,9 @@
 {
   "name": "@ocean-network-express/mcfe-shared",
   "version": "0.0.6",
-  "main": "cjs/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
   "author": "hanhleclv",
   "license": "MIT",
   "repository": {
@@ -11,6 +11,11 @@
     "url": "git@github.com:ocean-network-express/mcfe-demo.git",
     "directory": "packages/shared"
   },
+  "files": [
+    "cjs",
+    "lib",
+    "CHANGELOG.md"
+  ],
   "scripts": {
     "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "npx tsc",
