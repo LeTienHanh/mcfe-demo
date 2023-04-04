@@ -1,6 +1,6 @@
 {
   "name": "app1",
-  "version": "0.1.2",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "dev": "PORT=3001 next dev",
