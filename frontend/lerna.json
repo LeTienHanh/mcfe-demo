@@ -3,7 +3,7 @@
   "useWorkspaces": true,
   "version": "independent",
   "npmClient": "yarn",
-  "packages": ["packages/shared"],
+  "packages": ["packages/*"],
   "command": {
     "publish": {
       "registry": "https://npm.pkg.github.com/"

@@ -26,8 +26,7 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "allowSyntheticDefaultImports": true,
-    "outDir": "./esm",
-    "declarationDir": "./lib",
+    "outDir": "./lib",
     "rootDir": "./src"
   },
   "include": ["**/*.ts", "**/*.tsx"],
