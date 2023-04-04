@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.0.2](https://github.com/ocean-network-express/mcfe-demo/compare/app1@0.1.2...app1@0.0.2) (2023-04-04)
+
+
+### Bug Fixes
+
+* shared packages ([db9ad3c](https://github.com/ocean-network-express/mcfe-demo/commit/db9ad3ca5a59def17dc0ce47ca40b9d36ec2ae5a))
+
+
+
+
+
 ## [0.1.2](https://github.com/ocean-network-express/mcfe-demo/compare/app1@0.1.1...app1@0.1.2) (2023-04-04)
 
 
