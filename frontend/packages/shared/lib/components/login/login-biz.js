@@ -1,11 +1,13 @@
-import { __awaiter } from "tslib";
-import { useState } from "react";
-import { signIn } from "next-auth/react";
-export default function useLoginBiz() {
-    const [loginWaiting, setLoginWaiting] = useState(false);
-    const login = (values) => __awaiter(this, void 0, void 0, function* () {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const tslib_1 = require("tslib");
+const react_1 = require("react");
+const react_2 = require("next-auth/react");
+function useLoginBiz() {
+    const [loginWaiting, setLoginWaiting] = (0, react_1.useState)(false);
+    const login = (values) => tslib_1.__awaiter(this, void 0, void 0, function* () {
         setLoginWaiting(true);
-        const user = yield signIn("credentials", values);
+        const user = yield (0, react_2.signIn)("credentials", values);
         console.log(user);
     });
     return {
@@ -13,4 +15,5 @@ export default function useLoginBiz() {
         loginWaiting,
     };
 }
+exports.default = useLoginBiz;
 //# sourceMappingURL=login-biz.js.map
