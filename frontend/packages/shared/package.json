@@ -1,5 +1,5 @@
 {
-  "name": "mcfeshared",
+  "name": "@one-network-express/mcfeshared",
   "version": "0.0.2",
   "main": "cjs/index.js",
   "module": "index.js",
