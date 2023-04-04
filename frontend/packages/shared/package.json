@@ -6,8 +6,13 @@
   "types": "index.d.ts",
   "author": "hanhleclv",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ocean-network-express/mcfe-demo.git",
+    "directory": "packages/shared"
+  },
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "yarn build:esm",
     "build:esm": "npx tsc",
     "build:cjs": "tsc --module commonjs --outDir cjs",
     "clean": "npx tsc --build --clean"

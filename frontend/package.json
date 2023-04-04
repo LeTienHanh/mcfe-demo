@@ -8,7 +8,9 @@
   "scripts": {
     "watch:mcfeshared": "npx lerna watch --scope=mcfeshared  --ignore **/*.d.ts --ignore **/*.d.ts.map --ignore cjs --ignore esm -- lerna run build --scope=mcfeshared",
     "dev": "npx lerna run dev",
-    "version": "npx lerna version --conventional-commits --no-push --no-git-tag-version --yes"
+    "bootstrap": "npx lerna bootstrap",
+    "version:ci": "npx lerna version --yes --conventional-commits --create-release github --message 'chore(release): publish'",
+    "publish:ci": "npx lerna publish from-package --yes"
   },
   "devDependencies": {
     "@types/node": "^18.15.0",
