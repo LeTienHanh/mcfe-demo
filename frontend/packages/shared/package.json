@@ -2,8 +2,8 @@
   "name": "@ocean-network-express/mcfe-shared",
   "version": "0.0.3",
   "main": "cjs/index.js",
-  "module": "index.js",
-  "types": "index.d.ts",
+  "module": "esm/index.js",
+  "types": "esm/index.d.ts",
   "author": "hanhleclv",
   "license": "MIT",
   "repository": {
@@ -12,7 +12,7 @@
     "directory": "packages/shared"
   },
   "scripts": {
-    "build": "yarn build:esm",
+    "build": "yarn build:esm && yarn build:cjs",
     "build:esm": "npx tsc",
     "build:cjs": "tsc --module commonjs --outDir cjs",
     "clean": "npx tsc --build --clean"
