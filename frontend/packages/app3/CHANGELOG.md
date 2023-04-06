@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 0.0.3 (2023-04-06)
+
+**Note:** Version bump only for package app3
+
+
+
+
+
 ## [0.0.2](https://github.com/ocean-network-express/mcfe-demo/compare/root@0.1.2...root@0.0.2) (2023-04-04)
 
 
