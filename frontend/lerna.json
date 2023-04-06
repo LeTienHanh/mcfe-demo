@@ -9,7 +9,6 @@
       "registry": "https://npm.pkg.github.com/"
     },
     "version": {
-      "allowBranch": "release",
       "ignoreChanges": ["**/*.md"]
     }
   }
