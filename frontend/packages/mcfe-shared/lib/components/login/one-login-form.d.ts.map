@@ -1,0 +1,1 @@
+{"version":3,"file":"one-login-form.d.ts","sourceRoot":"","sources":["../../../src/components/login/one-login-form.tsx"],"names":[],"mappings":"AAcA,OAAO,KAAK,MAAM,OAAO,CAAC;AAG1B,MAAM,WAAW,cAAc;IAC7B,KAAK,CAAC,EAAE,KAAK,CAAC,aAAa,CAAC;IAC5B,SAAS,EAAE,QAAQ,CAAC;CACrB;AAED,eAAO,MAAM,YAAY,EAAE,KAAK,CAAC,EAAE,CAAC,cAAc,CA+DjD,CAAC"}

@@ -1,32 +1,25 @@
 "use client";
 
-import { MantineProvider, Text, Flex, Space } from "@mantine/core";
-import { LoginForm } from "@ocean-network-express/mcfe-shared";
+import { Text, Flex, Space, Container } from "@mantine/core";
+import { OneLoginForm } from "@ocean-network-express/mcfe-shared";
 import { useRouter } from "next/navigation";
 
 export default function Login() {
   const router = useRouter();
 
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        colorScheme: "light",
-      }}
-    >
-      <Flex direction="column" align="center" h="100%">
-        <div style={{ flex: 1 }}></div>
-        <Text fw={700}>APP2 APP LOGIN</Text>
-        <Space h="sm" />
-        <LoginForm
-          style={{ flex: 1 }}
+    <Flex direction="column" align="center" h="100%">
+      <div style={{ flex: 0.5 }}></div>
+      <Text fw={700}>APP 2 LOGIN</Text>
+      <Space h="sm" />
+      <div style={{ flex: 1, width: 500 }}>
+        <OneLoginForm
           onSuccess={() => {
             router.push("/");
           }}
         />
-        <div style={{ flex: 1 }}></div>
-      </Flex>
-    </MantineProvider>
+      </div>
+      <div style={{ flex: 1 }}></div>
+    </Flex>
   );
 }

@@ -1,0 +1,44 @@
+{
+  "name": "@ocean-network-express/mcfe-shared",
+  "version": "0.0.8",
+  "main": "./cjs/index.js",
+  "module": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "author": "hanhleclv",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ocean-network-express/mcfe-demo.git",
+    "directory": "packages/shared"
+  },
+  "files": [
+    "cjs",
+    "lib",
+    "CHANGELOG.md"
+  ],
+  "scripts": {
+    "build": "yarn build:esm && yarn build:cjs",
+    "build:esm": "npx tsc",
+    "build:cjs": "npx tsc --module commonjs --outDir cjs",
+    "watch:cjs": "npx tsc --watch --module commonjs --outDir cjs",
+    "clean": "npx tsc --build --clean",
+    "watch": "npx tsc --watch && yarn watch:cjs"
+  },
+  "dependencies": {
+    "@mantine/core": "^6.0.1",
+    "@mantine/form": "^6.0.1",
+    "@mantine/hooks": "^6.0.1",
+    "@types/react": "^18.0.28",
+    "@types/react-dom": "^18.0.11",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "typescript": "4.9.5"
+  },
+  "peerDependencies": {
+    "http-proxy-middleware": "2.0.6",
+    "next": "13.2.4",
+    "next-auth": "4.20.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0"
+  }
+}

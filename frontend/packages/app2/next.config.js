@@ -18,7 +18,7 @@ const nextConfig = {
         filename: "static/chunks/remoteEntry.js",
         remotes: {},
         exposes: {
-          "./components/user-info": "./components/user-info",
+          "./components/app2-line-chart": "./components/line-chart",
         },
         shared: {
           "next-auth": {

@@ -1,0 +1,1 @@
+{"version":3,"file":"one-logout-button.js","sourceRoot":"","sources":["../../src/components/one-logout-button.tsx"],"names":[],"mappings":";;;;AAAA,wCAAuC;AACvC,0DAA0B;AAC1B,2CAA0C;AAEnC,MAAM,eAAe,GAAa,GAAG,EAAE;IAC5C,OAAO,CACL,8BAAC,aAAM,IACL,OAAO,EAAE,GAAG,EAAE;YACZ,IAAA,eAAO,GAAE,CAAC;QACZ,CAAC;QAEA,GAAG;;QACG,GAAG,CACH,CACV,CAAC;AACJ,CAAC,CAAC;AAXW,QAAA,eAAe,mBAW1B"}

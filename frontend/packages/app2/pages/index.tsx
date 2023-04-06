@@ -1,45 +1,44 @@
 "use client";
 
-import { UserCardApp2 } from "@/components/user-info";
-import { Button, Flex, MantineProvider, Center } from "@mantine/core";
+import { App2LineChart } from "@/components/line-chart";
+import { Button, Flex, Center } from "@mantine/core";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-import { LogoutButton } from "@ocean-network-express/mcfe-shared";
+import {
+  OneLogoutButton,
+  OneAppShell,
+} from "@ocean-network-express/mcfe-shared";
 
 export default function RootPage() {
   const router = useRouter();
   const { status } = useSession();
 
+  if (status !== "authenticated") {
+    return (
+      <Button
+        onClick={() => {
+          router.push("/login");
+        }}
+      >
+        {" "}
+        Login{" "}
+      </Button>
+    );
+  }
+
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        colorScheme: "light",
-      }}
-    >
-      {status !== "authenticated" ? (
-        <Button
-          onClick={() => {
-            router.push("/login");
-          }}
-        >
-          {" "}
-          Login{" "}
-        </Button>
-      ) : (
-        <Flex w="100%" align="center" pl={32} pr={32} pt={32}>
-          <div style={{ flex: 1 }}>
-            <UserCardApp2 />
-          </div>
-          <div style={{ flex: 1 }}>
-            <Center>
-              <LogoutButton />
-            </Center>
-          </div>
-          <div style={{ flex: 1 }}></div>
-        </Flex>
-      )}
-    </MantineProvider>
+    <OneAppShell title={"APP 2"}>
+      <Flex w="100%" align="center" h={400} pl={32} pr={32} pt={32}>
+        <div style={{ flex: 1, height: "100%" }}>
+          <App2LineChart />
+        </div>
+
+        <div style={{ flex: 1 }}></div>
+      </Flex>
+
+      <Center pt={40}>
+        <OneLogoutButton />
+      </Center>
+    </OneAppShell>
   );
 }
