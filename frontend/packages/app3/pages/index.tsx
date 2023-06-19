@@ -30,7 +30,7 @@ import {
 // });
 
 const App2LineChart = dynamic(() => import("app2/components/app2-line-chart"), {
-  loading: () => <p>Loading app2 user information</p>,
+  loading: () => <p>Loading app2 component</p>,
   ssr: false,
 });
 

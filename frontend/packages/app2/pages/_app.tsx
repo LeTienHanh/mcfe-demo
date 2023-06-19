@@ -8,16 +8,16 @@ export default function App({
   pageProps: { session, ...pageProps },
 }: AppProps) {
   return (
-    <SessionProvider session={session} basePath="/app2/api/auth">
-      <MantineProvider
-        withGlobalStyles
-        withNormalizeCSS
-        theme={{
-          colorScheme: "light",
-        }}
-      >
-        <Component {...pageProps} />
-      </MantineProvider>
-    </SessionProvider>
+    // <SessionProvider session={session} basePath="/app2/api/auth">
+    <MantineProvider
+      withGlobalStyles
+      withNormalizeCSS
+      theme={{
+        colorScheme: "light",
+      }}
+    >
+      <Component {...pageProps} />
+    </MantineProvider>
+    // </SessionProvider>
   );
 }

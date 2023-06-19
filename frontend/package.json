@@ -7,7 +7,9 @@
   "private": true,
   "scripts": {
     "watch:mcfe-shared": "npx lerna run watch --scope='@ocean-network-express/mcfe-shared'",
-    "dev": "npx lerna run dev",
+    "dev": "npx lerna run --stream dev",
+    "build": "npx lerna run build",
+    "start": "npx lerna run --stream start",
     "bootstrap": "npx lerna bootstrap",
     "version:ci": "npx lerna version patch --yes --conventional-commits --create-release github --message 'chore(release): publish'",
     "publish:ci": "npx lerna publish from-package --yes"
@@ -17,7 +19,7 @@
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "create-next-app": "^13.2.4",
-    "lerna": "^6.5.1"
+    "lerna": "6"
   },
   "workspaces": [
     "packages/*"

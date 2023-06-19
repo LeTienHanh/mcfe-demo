@@ -10,21 +10,21 @@ import {
 } from "@ocean-network-express/mcfe-shared";
 
 export default function RootPage() {
-  const router = useRouter();
-  const { status } = useSession();
+  // const router = useRouter();
+  // const { status } = useSession();
 
-  if (status !== "authenticated") {
-    return (
-      <Button
-        onClick={() => {
-          router.push("/login");
-        }}
-      >
-        {" "}
-        Login{" "}
-      </Button>
-    );
-  }
+  // if (status !== "authenticated") {
+  //   return (
+  //     <Button
+  //       onClick={() => {
+  //         router.push("/login");
+  //       }}
+  //     >
+  //       {" "}
+  //       Login{" "}
+  //     </Button>
+  //   );
+  // }
 
   return (
     <OneAppShell title={"APP 2"}>
@@ -36,9 +36,9 @@ export default function RootPage() {
         <div style={{ flex: 1 }}></div>
       </Flex>
 
-      <Center pt={40}>
+      {/* <Center pt={40}>
         <OneLogoutButton />
-      </Center>
+      </Center> */}
     </OneAppShell>
   );
 }

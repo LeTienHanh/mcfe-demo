@@ -7,7 +7,7 @@ const react_1 = tslib_1.__importDefault(require("react"));
 const one_footer_1 = require("./one-footer");
 const one_header_1 = require("./one-header");
 const one_navbar_1 = require("./one-navbar");
-const OneAppShell = ({ children, }) => {
+const OneAppShell = ({ children, title, }) => {
     const theme = (0, core_1.useMantineTheme)();
     return (react_1.default.createElement(core_1.AppShell, { styles: {
             main: {
@@ -19,7 +19,7 @@ const OneAppShell = ({ children, }) => {
                 { label: "Contact" },
                 { label: "Privacy" },
                 { label: "Store" },
-            ] }), header: react_1.default.createElement(one_header_1.OneHeader, { links: [
+            ] }), header: react_1.default.createElement(one_header_1.OneHeader, { title: title, links: [
                 {
                     label: "Features",
                     link: "",

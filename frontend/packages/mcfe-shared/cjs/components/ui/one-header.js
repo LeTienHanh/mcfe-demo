@@ -49,7 +49,7 @@ const useStyles = (0, core_1.createStyles)((theme) => ({
         marginRight: (0, core_1.rem)(5),
     },
 }));
-function OneHeader({ links }) {
+function OneHeader({ links, title }) {
     const [opened, { toggle }] = (0, hooks_1.useDisclosure)(false);
     const { classes } = useStyles();
     const items = links.map((link) => {
@@ -70,7 +70,9 @@ function OneHeader({ links }) {
         react_1.default.createElement(core_1.Container, null,
             react_1.default.createElement("div", { className: classes.inner },
                 react_1.default.createElement(ds_1.MantineLogo, { size: 28, type: "mark", inverted: true }),
-                react_1.default.createElement(core_1.Text, { fw: 700, style: { paddingLeft: 20 } }, "MCFE DEMO"),
+                react_1.default.createElement(core_1.Text, { fw: 700, style: { paddingLeft: 20 } },
+                    "MCFE DEMO - ",
+                    title),
                 react_1.default.createElement("div", { style: { flex: 1 } }),
                 react_1.default.createElement(core_1.Group, { spacing: 5, className: classes.links }, items),
                 react_1.default.createElement(core_1.Burger, { opened: opened, onClick: toggle, className: classes.burger, size: "sm", color: "#fff" })))));

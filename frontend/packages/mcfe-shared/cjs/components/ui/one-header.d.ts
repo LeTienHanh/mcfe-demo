@@ -8,7 +8,8 @@ interface HeaderSearchProps {
             label: string;
         }[];
     }[];
+    title?: String;
 }
-export declare function OneHeader({ links }: HeaderSearchProps): JSX.Element;
+export declare function OneHeader({ links, title }: HeaderSearchProps): JSX.Element;
 export {};
 //# sourceMappingURL=one-header.d.ts.map
